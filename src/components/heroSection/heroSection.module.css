@@ -1,0 +1,30 @@
+.hero{
+    background-image: url("../../assests//medistack-hero-background.png");
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+}
+.HeroContaienr{
+    padding: 90px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    background: linear-gradient(90deg,rgba(33, 145, 127, 0.75) 0%, rgba(47, 191, 167, 0.53) 61%, rgba(255, 255, 255, 0.52) 100%);
+}
+.HeroContaienr h1{
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+.HeroContaienr p{
+    font-size: 20px;
+    max-width: 600px;
+}
+.buttonContainer{
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;}

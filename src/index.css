@@ -1,0 +1,16 @@
+:root{
+  --primary-color: rgb(47, 191, 167);
+  --secondary-color: #f0f4f8;
+  --text-color: #333;
+  --header-bg-color: #fff;
+  --footer-bg-color: #f8f9fa;
+  --button-bg-color: var(--primary-color);
+  --button-text-color: #fff;
+  --button-hover-bg-color: #45a29e;
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
