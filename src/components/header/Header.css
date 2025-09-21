@@ -56,3 +56,228 @@
 .auth-buttons .sign-up:hover {
   background-color: #218838;
 }
+.togglebtn{
+  cursor: pointer;
+}
+@media screen and (max-width: 480px) {
+  .auth-buttons {
+   display: none;
+  }
+  .nav-links{
+    display: none;
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .toggle{
+    display: none;
+  }
+}
+/* .sidebaroverlay{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  display: flex;
+  justify-content: flex-end;}
+.sidebarmenu{
+  position: fixed;
+  z-index: 1001;
+display: flex;
+flex-direction: column;}
+.closebtn{
+  align-self: flex-end;
+  cursor: pointer;
+  margin-bottom: 20px;
+  position: fixed;
+  right: 20px;
+  bo: 20px;
+  z-index: 1002;
+}
+  .sidebar{
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1000;
+    width: 250px;
+    height: 100%;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    animation: slideIn 0.3s forwards;}
+    @keyframes slideIn {
+      from {
+        transform: translateX(50%);
+      }
+      to {
+        transform: translateX(0);
+      }
+    }  */
+      /* Mobile menu container styling */
+/* Mobile menu container styling */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1000;
+  display: flex;
+}
+
+/* Overlay for background dimming */
+.sidebaroverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  z-index: 1;
+}
+
+/* Sidebar menu container styling */
+.sidebarmenu {
+  position: fixed;
+  right: 0;
+  width: 300px;
+  height: 100%;
+  background: linear-gradient(180deg, #f8fafc, #e2e8f0);
+  box-shadow: -6px 0 12px rgba(0, 0, 0, 0.15);
+  transform: translateX(100%);
+  animation: slideIn 0.4s ease-out forwards;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Slide-in animation */
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Sidebar content styling */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  padding: 2.5rem 1.5rem;
+  gap: 1.25rem;
+}
+
+/* Sidebar link styling */
+.sidebar a {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.125rem;
+  color: #1e293b;
+  text-decoration: none;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.sidebar a:hover {
+  background: #e5e7eb;
+  color: #3b82f6;
+  transform: translateX(5px);
+}
+
+/* Login button styling */
+.login {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: #3b82f6;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.login:hover {
+  background: #2563eb;
+  transform: scale(1.05);
+}
+
+/* Sign-up button styling */
+.sign-up {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: #10b981;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.sign-up:hover {
+  background: #059669;
+  transform: scale(1.05);
+}
+
+/* Close button container styling */
+.closebtn {
+  margin-top: auto; /* Pushes the close button to the bottom */
+  padding: 1.5rem;
+  display: flex;
+  align-self: flex-start;
+  justify-content: flex-end;
+}
+
+/* Close button image styling */
+.closebtn img {
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.closebtn img:hover {
+  transform: rotate(90deg);
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .sidebarmenu {
+    width: 260px;
+  }
+
+  .sidebar {
+    padding: 2rem 1rem;
+  }
+
+  .sidebar a {
+    font-size: 1rem;
+    padding: 0.6rem 0.8rem;
+  }
+
+  .login, .sign-up {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.95rem;
+  }
+
+  .closebtn {
+    padding: 1rem;
+  }
+
+  .closebtn img {
+    width: 24px;
+    height: 24px;
+  }
+}

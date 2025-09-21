@@ -1,0 +1,40 @@
+.detailContainer{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 50px 0;
+    background-color: #ffffff;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.detailBox{
+    width: 250px;
+    height: 150px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    border-top: 3px solid var(--primary-color);
+}
+.detailBox:hover{
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    transform: translateY(-5px);
+    transition: all 0.3s ease;
+}
+.detailBox h2{
+    color: #333;
+    font-size: 24px;
+    margin: 10px 0;
+}
+.detailBox p{
+    color: #555;
+    font-size: 16px;
+ 
+}

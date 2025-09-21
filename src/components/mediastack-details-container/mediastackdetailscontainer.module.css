@@ -1,0 +1,59 @@
+.mediaStackDetailsContainer{
+    display: flex;
+    flex-direction: column;
+    background-color: #f9f9f9;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 40px 20px; 
+    align-items: center;
+}
+.Heading{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.Heading h2{
+    color: #333;
+    font-size: 32px;
+    margin: 10px 0;
+}
+.Heading p{
+    color: #555;
+    font-size: 18px;
+    text-align: center;
+    max-width: 600px;
+}
+.Heading img{
+    margin:0px;
+    padding:0px;
+    width: 80px;
+    height: 40px;
+}
+.detailBoxesContainer{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+}
+.detailBoxes{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+    flex-direction: column;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    width: 300px;
+    height: 200px;
+}
+.detailBoxes:hover{
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    transform: translateY(-5px);
+    transition: all 0.3s ease;
+}
