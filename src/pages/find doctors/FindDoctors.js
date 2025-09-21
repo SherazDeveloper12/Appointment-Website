@@ -1,4 +1,4 @@
-import Styles from '../find doctors/FindDoctors.module.css'
+import Styles from '../find doctors/finddoctors.module.css'
 import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
 export default function FindDoctors() {
