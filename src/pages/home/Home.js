@@ -4,12 +4,14 @@ import HeroSection from '../../components/heroSection/HeroSection';
 import Styles from './home.module.css';
 import DetailContainer from '../../components/details-container/DetailContainer';
 import MediaStackDetailsContainer from '../../components/mediastack-details-container/MediaStackDetailsContainer';
+import PopularSpecalties from '../../components/popularspecalties/PopularSpecalties'
 export default function Home() {
     return (
         <div>
             <Header />
             <HeroSection />
             <DetailContainer />
+            <PopularSpecalties/>
             <MediaStackDetailsContainer />
             <Footer />
         </div>

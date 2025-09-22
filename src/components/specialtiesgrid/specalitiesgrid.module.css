@@ -1,0 +1,121 @@
+.gridContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Cards ko center align karega */
+  gap: 20px; /* Space between cards */
+  padding: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.specialtyCard {
+  background: #fff; /* White background jaise image mein */
+  border-radius: 10px;
+  border: 1px solid rgb(230, 228, 228);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.2s;
+  width: 300px; /* Fixed width for consistency, adjust as needed */
+  flex: 0 0 auto; /* Prevent flex-shrink */
+}
+
+.specialtyCard:hover {
+  transform: translateY(-5px);
+  .icondiv{
+    background-color: #94ecb967;
+    border-radius:6px ;
+  }
+  .findButton{
+    color: white;
+    background-color: rgb(46, 189, 163);
+    font-weight: 600;
+  }
+  .specialtyName{
+    color:rgb(46, 189, 163);
+  }
+}
+.cardheader{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.icondiv{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.headingAndDescDev{
+    display: flex;
+    justify-content: flex-start !important;
+    text-align: left;
+    flex-direction: column;
+}
+.icon {
+  width: 40px;
+  height: 40px;
+  margin: 5px;
+  
+}
+
+.specialtyName {
+  font-size: 1.2em;
+  margin: 7px 0;
+  color: #333;
+}
+
+.description {
+  font-size: 0.9em;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 0.9em;
+  color: #888;
+}
+
+.doctorCount,
+.rating {
+  padding: 5px 10px;
+display: flex;
+gap: 5px;
+align-items: center;
+  border-radius: 5px;
+}
+
+.findButton {
+  background: #ffffff;
+  color: #000000;
+  border: 1px solid rgb(230, 228, 228);
+  
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 0.8em;
+  transition: background 0.2s;
+}
+
+.findButton:hover {
+  background: #27ae60;
+}
+
+.loading,
+.error,
+.noData {
+  text-align: center;
+  font-size: 1.1em;
+  color: #666;
+}
+
+.loading {
+  color: #2ecc71;
+}
+
+.error {
+  color: #e74c3c;
+}

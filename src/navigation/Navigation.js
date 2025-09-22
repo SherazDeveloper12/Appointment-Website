@@ -29,11 +29,11 @@ export default function Navigation() {
     },
     {
       path:"/signup",
-      element: <Signup />
+      element: <Signup/>
     },
     {
       path:"/login",
-      element:<Login />
+      element:<Login/>
     },
   ])
   return (

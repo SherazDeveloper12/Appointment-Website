@@ -1,0 +1,119 @@
+.popularContainer {
+  padding: 20px;
+  margin: 0 auto;
+  background-color: rgb(249, 249, 249);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.popularContainercontent{
+    max-width: 800px;
+}
+.specialtiesList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.specialtyCard {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 250px;
+  flex: 0 0 auto;
+  overflow: hidden;
+  cursor: pointer; /* Indicate clickable area */
+  transition: transform 0.2s;
+}
+
+.specialtyCard:hover {
+  transform: translateY(-5px);
+  .findSpecialists{
+    text-decoration: underline;
+    font-weight: 600;
+  }
+  .specialtyName{
+    color:#2ecc71;
+  }
+}
+
+.coverImage {
+  height: 150px; /* Adjust height as per image */
+  background-size: cover;
+  background-position: center;
+}
+
+.content {
+  padding: 15px;
+ 
+}
+
+.specialtyName {
+  font-size: 1.2em;
+  margin: 5px 0;
+  color: #333;
+  font-weight: bold;
+}
+
+.description {
+  font-size: 0.9em;
+  color: #666;
+  margin: 5px 0 10px;
+}
+
+.findSpecialists {
+
+  color:#2ecc71;
+  border: none;
+
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 0.7em;
+  transition: background 0.2s;
+}
+
+.findButton:hover {
+  background: #27ae60;
+}
+
+.loading,
+.error,
+.noData {
+  text-align: center;
+  font-size: 1.1em;
+  color: #666;
+}
+
+.loading {
+  color: #2ecc71;
+}
+
+.error {
+  color: #e74c3c;
+}
+.popularContainerHeading{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.popularContainerHeading h2{
+    color: #333;
+    font-size: 32px;
+    margin: 10px 0;
+}
+.popularContainerHeading p{
+    color: #555;
+    font-size: 18px;
+    text-align: center;
+    max-width: 600px;
+}
+.popularContainerHeading img{
+    margin:0px;
+    padding:0px;
+    width: 80px;
+    height: 40px;
+}
