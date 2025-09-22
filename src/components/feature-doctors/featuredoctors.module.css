@@ -1,0 +1,236 @@
+.Heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.Heading h2 {
+  color: #333;
+  font-size: 32px;
+  margin: 10px 0;
+}
+
+.Heading p {
+  color: #555;
+  font-size: 18px;
+  text-align: center;
+  max-width: 600px;
+}
+
+.Heading img {
+  margin: 0px;
+  padding: 0px;
+  width: 80px;
+  height: 40px;
+}
+.doctorsList {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.doctorCard {
+  background: #fff;
+  border-radius: 8px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.2s;
+  position: relative;
+}
+
+.doctorCard:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+.doctorInfo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 15px;
+}
+.doctorImage{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.profilePic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.RatingReviewsPriceContainer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.ReviewsRating{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    justify-content: center;
+}
+.Rating{
+    font-weight: 600;
+    font-size: 1em;
+}
+.reviews{
+    font-size: 1em;
+    color: #a9a9a9;
+}
+.priceTag{
+    font-weight: 800;
+    font-size: 1.2em;
+    color: #000000;
+}
+.experience{
+    font-size: 1em;
+    color: #a9a9a9;
+    text-align: center;
+    font-weight: 400;
+}
+.actions{
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    font-size: 1em;
+    
+}
+.viewProfile {
+  background: #fff;
+  border: 1px solid #ddd;
+  color: #333;
+   padding: 5px 30px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.viewProfile:hover {
+  background: rgb(47, 191, 167);
+  color: #fff;
+}
+
+.bookNow {
+  background: rgb(47, 191, 167);
+  border: none;
+  color: #fff;
+  padding: 5px 30px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.bookNow:hover {
+  background: rgb(47, 191, 167);
+}
+.specialty {
+  color: rgb(47, 191, 167);
+  font-size: 0.9rem;
+}
+.name {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin: 0;
+}
+.viewAll{
+    background-color: rgb(253, 255, 255);
+  font-size: 1em;
+  font-weight: bold;
+  border: 1px solid rgb(47, 191, 167);
+  border-radius: 10px;
+  padding: 10px 30px;
+  color: rgb(47, 191, 167);
+  text-align: center;
+  margin-bottom: 25px;
+}
+.viewAll:hover{
+    border: 1px solid rgb(47, 191, 167);
+    background-color: rgb(47, 191, 167);
+     color: #ffffff;
+}
+.Container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+/* 
+
+.priceTag {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #2ecc71;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+
+
+
+
+.details {
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+
+
+.experience {
+  font-size: 0.9em;
+  color: #666;
+  margin: 0;
+}
+
+.additionalInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.city {
+  font-size: 0.9em;
+  color: #666;
+  margin: 0;
+}
+
+.rating {
+  font-size: 1em;
+  color: #f39c12;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+
+
+.loading,
+.error {
+  text-align: center;
+  font-size: 1.1em;
+  color: #666;
+}
+
+.loading {
+  color: #2ecc71;
+}
+
+.error {
+  color: #e74c3c;
+} */

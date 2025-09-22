@@ -5,6 +5,7 @@ import Styles from './home.module.css';
 import DetailContainer from '../../components/details-container/DetailContainer';
 import MediaStackDetailsContainer from '../../components/mediastack-details-container/MediaStackDetailsContainer';
 import PopularSpecalties from '../../components/popularspecalties/PopularSpecalties'
+import FeatureDoctors from '../../components/feature-doctors/FeatureDoctors';
 export default function Home() {
     return (
         <div>
@@ -12,6 +13,7 @@ export default function Home() {
             <HeroSection />
             <DetailContainer />
             <PopularSpecalties/>
+            <FeatureDoctors/>
             <MediaStackDetailsContainer />
             <Footer />
         </div>

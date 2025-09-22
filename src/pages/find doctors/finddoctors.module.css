@@ -1,0 +1,205 @@
+.container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.doctorsFound {
+  font-size: 1.1em;
+  color: #666;
+  margin-bottom: 20px;
+}
+.doctorsList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.doctorCard {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  flex-direction: row;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.2s;
+  position: relative;
+}
+.doctorCard:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+.doctorInfo {
+    width: 70%;
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+ 
+}
+.leftside{
+  
+    display: flex;
+    gap: 15px;
+}
+.profilePic {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.additionalInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5px;
+}
+.ReviewsRating {
+  font-size: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+}
+.Rating{
+font-weight: 600;
+}
+.reviews{
+    color: #666;
+}
+.city {
+  font-size: 0.9em;
+  color: #666;
+  margin: 0;
+}
+.rightside{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-direction: column;
+    gap: 10px;
+}
+.price{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+.priceTag {
+  color: #000000;
+  font-size: 1.5em;
+  font-weight:800;
+}
+.price p{
+    font-size: 0.9em;
+    color: #666;
+}
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+.viewProfile {
+  background: #fff;
+  border: 1px solid #ddd;
+  color: #333;
+  padding: 5px 25px;
+  border-radius: 5px;
+  cursor: pointer;
+
+  transition: background 0.2s;
+}
+.viewProfile:hover {
+background:rgb(47, 191, 167);
+    color: #ffffff;
+    border: 1px solid rgb(47, 191, 167);
+}
+.bookNow {
+  background: rgb(47, 191, 167);
+  border: none;
+  color: #fff;
+  padding: 5px 25px;
+  border-radius: 5px;
+  cursor: pointer;
+ 
+  transition: background 0.2s;
+}
+
+.bookNow:hover {
+  background:rgb(47, 191, 167);
+}
+.name {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin: 0;
+}
+.name {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin: 0;
+}
+.loading,
+.error {
+  text-align: center;
+  font-size: 1.1em;
+  color: #666;
+}
+
+.loading {
+  color: #2ecc71;
+}
+
+.error {
+  color: #e74c3c;
+}
+.specialty {
+  font-size: 1em;
+  color: #333;
+  margin: 0;
+}
+.experience {
+  font-size: 0.9em;
+  color: #666;
+  margin: 0;
+}
+@media (max-width: 768px) {
+  .doctorInfo {
+    width: 100%;
+ }
+ .rightside{
+     width: 100%;
+ }
+ .leftside{
+     width: 100%;
+ }
+ .price{
+     width: 100%;
+ }
+
+}
+@media (max-width: 480px) { 
+    .doctorInfo {
+        flex-direction: column;
+    }
+    .rightside{
+        width: 100%;
+    }
+    .leftside{
+        width: 100%;
+    }
+    .price{
+        width: 100%;
+    }
+    .doctorInfo .rightside{
+        margin-top: 10px;
+    }
+    .doctorInfo .leftside{
+        margin-top: 10px;
+    }
+    .doctorInfo .price{
+        margin-top: 10px;
+    }
+    .doctorInfo .price .price-text{
+        font-size: 12px;
+    }
+}
