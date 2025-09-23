@@ -1,8 +1,11 @@
 import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
 import styles from './signup.module.css'
+import { signup } from "../../features/slices/authslice"
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import { useDispatch, useSelector } from "react-redux"
+
 
 export default function Signup() {
   const [name, setName] = useState('');
@@ -11,15 +14,22 @@ export default function Signup() {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-
+  const disptach=useDispatch()
   const handleSubmit = (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {
       alert('Passwords do not match');
       return;
     }
-    // Handle signup logic here
-    console.log('Signup submitted', { name, email, password });
+    let userDetails={
+            name,email,password
+        }
+    console.log('Signup submitted',userDetails );
+     disptach(signup(userDetails))
+      setName('')
+        setEmail('')
+        setPassword('')
+        setConfirmPassword('')
   };
 
   return (

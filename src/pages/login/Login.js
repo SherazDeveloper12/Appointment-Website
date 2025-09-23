@@ -1,10 +1,13 @@
 import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
 import styles from './login.module.css'
+import { login } from '../../features/slices/authslice'
+import { useDispatch } from "react-redux"
 import { Link } from 'react-router';
 import { useState } from 'react';
 
 export default function Login() {  
+     const dispatch = useDispatch();
      const [loginMethod, setLoginMethod] = useState('email');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -19,7 +22,14 @@ export default function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle login logic here
-    console.log('Login submitted', { loginMethod, email, password });
+     let user={
+        email,
+      password
+     }
+dispatch(login(user))
+     console.log("user from login component",user)
+     setEmail('')
+     setPassword('')
   };
 
   return (

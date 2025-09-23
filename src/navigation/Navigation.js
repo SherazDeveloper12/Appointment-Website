@@ -6,6 +6,7 @@ import Signup from '../pages//signup/Signup';
 import Login from '../pages/login/Login';
 import FindDoctors from '../pages/find doctors/FindDoctors';
 import Specialties from '../pages/specialties/Specialties';
+import UserDashboard from '../pages/user-dashboard/UserDashboard'
 import PrivateRoute from './PrivateRouting';
 import PublicRoute from './PublicRouting';
 export default function Navigation() {
@@ -26,6 +27,10 @@ export default function Navigation() {
     {
       path:"/specialties",
       element:<Specialties/>
+    },
+    {
+      path:"/profile",
+      element:<UserDashboard/>
     },
     {
       path:"/signup",

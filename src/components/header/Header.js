@@ -1,9 +1,19 @@
 import React from 'react';
 import './Header.css'; // Assuming you will create a separate CSS file
+import { useSelector } from 'react-redux';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { logout } from '../../features/slices/authslice';
 
 const Header = () => {
+  const dispatch = useDispatch();
+  const logouthandler = () => { 
+    setIsMenuOpen(false)
+      dispatch(logout());
+  };
+     const user = useSelector((state) => state.auth.User);
+    
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <header className="header">
@@ -22,9 +32,10 @@ const Header = () => {
               <Link to="/" onClick={() => setIsMenuOpen(false)}>Home</Link>
               <Link to="/find-doctors" onClick={() => setIsMenuOpen(false)}>Find Doctors</Link>
               <Link to="/specialties" onClick={() => setIsMenuOpen(false)}>Specialties</Link>
-            <Link to="/login" ><button onClick={() => setIsMenuOpen(false)} className="login">Login</button></Link>
+            {(user)? <Link to="/" ><button onClick={() =>logouthandler() } className="login">Logout</button></Link> :  <><Link to="/login" ><button onClick={() => setIsMenuOpen(false)} className="login">Login</button></Link>
         <Link to="/signup"><button onClick={() => setIsMenuOpen(false)} className="sign-up">Sign Up</button></Link>
-  
+  </> }
+           
             </div>
             <div className='closebtn'>
               <img src={require("../../assests/exit-to-app-button.png")} width={30} onClick={() => setIsMenuOpen(false)} alt="Close Menu" />
@@ -38,9 +49,17 @@ const Header = () => {
         <Link to="/specialties">Specialties</Link>
       </nav>
       <div className="auth-buttons">
-        <Link to="/login"><button className="login">Login</button></Link>
+        {(user)? 
+        <>
+        <Link to="/profile"><button className="profilebtn"> <img src={require("../../assests/user-single-gray.png")} width={25} /> <p> {user.name} </p>    </button></Link>
+        <Link to="/" onClick={()=>logouthandler()}><button className="login">Logout</button></Link>
+          </>
+          : 
+        <>        <Link to="/login"><button className="login">Login</button></Link>
+
         <Link to="/signup"><button className="sign-up">Sign Up</button></Link>
-         
+         </>}
+        
       </div>
     </header>
   );

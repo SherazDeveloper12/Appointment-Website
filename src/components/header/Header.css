@@ -34,7 +34,9 @@
 .nav-links a:hover {
   color: #007bff;
 }
-
+.auth-buttons{
+  display: flex;
+}
 .auth-buttons button {
   padding: 8px 20px;
   margin-left: 10px;
@@ -73,54 +75,7 @@
     display: none;
   }
 }
-/* .sidebaroverlay{
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 999;
-  display: flex;
-  justify-content: flex-end;}
-.sidebarmenu{
-  position: fixed;
-  z-index: 1001;
-display: flex;
-flex-direction: column;}
-.closebtn{
-  align-self: flex-end;
-  cursor: pointer;
-  margin-bottom: 20px;
-  position: fixed;
-  right: 20px;
-  bo: 20px;
-  z-index: 1002;
-}
-  .sidebar{
-    position: fixed;
-    right: 0;
-    top: 0;
-    z-index: 1000;
-    width: 250px;
-    height: 100%;
-    background-color: #fff;
-    padding: 20px;
-    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    animation: slideIn 0.3s forwards;}
-    @keyframes slideIn {
-      from {
-        transform: translateX(50%);
-      }
-      to {
-        transform: translateX(0);
-      }
-    }  */
-      /* Mobile menu container styling */
-/* Mobile menu container styling */
+
 .mobile-menu {
   position: fixed;
   top: 0;
@@ -141,6 +96,66 @@ flex-direction: column;}
   background: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(3px);
   z-index: 1;
+}
+
+.profilebtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  background-color: transparent;
+  color: #333;
+  padding: 10px 20px;
+  text-decoration: none; /* Ensure no underline from button */
+  border: 1px solid #ddd;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  gap: 10px;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.profilebtn img {
+  vertical-align: middle;
+  filter: grayscale(0%);
+  transition: filter 0.3s ease;
+}
+
+.profilebtn p {
+  margin: 0;
+  text-decoration: none !important; /* Remove underline from text */
+  font-weight: 500;
+  white-space: nowrap;
+  /* Remove any inherited underline */
+  border-bottom: none !important;
+  text-decoration-line: none !important;
+}
+
+.profilebtn:hover {
+  background-color: #333;
+  color: #fff;
+  border-color: #333;
+}
+
+.profilebtn:hover img {
+  filter: grayscale(100%);
+}
+
+.profilebtn:focus {
+  box-shadow: 0 0 0 3px rgba(51, 51, 51, 0.2);
+  outline: none;
+}
+
+/* Target the Link parent to remove underline */
+.profilebtn a {
+  text-decoration: none !important;
+}
+
+/* Ensure no inherited styles from parent */
+.profilebtn, .profilebtn p, .profilebtn a {
+  text-decoration: none !important;
+  border-bottom: none !important;
 }
 
 /* Sidebar menu container styling */

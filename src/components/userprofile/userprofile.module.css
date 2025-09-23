@@ -1,0 +1,185 @@
+.UserProfile {
+  padding: 30px;
+  background-color: #ffffff;
+}
+
+.UserProfileContainer {
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  background-color: #fff;
+  display: flex;
+  padding: 20px 10px;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+}
+
+.Header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.Header p {
+  font-size: 1.5em;
+  font-weight: 600;
+  color: #333;
+}
+
+.EditButton {
+  background-color: #2ecc71;
+  color: #fff;
+  padding: 8px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.EditButton:hover {
+  background-color: #27ae60;
+}
+
+.ImgDetailContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 15px;
+}
+
+.ImgContainer {
+  display: inline-flex;
+  /* padding: 4px; */
+  background-color: rgb(47, 191, 167);
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer; /* Indicate clickable */
+}
+
+.ImgContainer:hover .uploadOverlay {
+  opacity: 1; /* Show overlay on hover */
+}
+
+.ImgContainer img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.uploadOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8em;
+  opacity: 0; /* Hidden initially */
+  transition: opacity 0.3s ease; /* Smooth fade */
+  border-radius: 50%;
+  pointer-events: none; /* Don't block click */
+}
+
+.NameEmail {
+  display: flex;
+  flex-direction: column;
+}
+
+.NameEmail h3 {
+  margin: 0;
+  font-size: 1.2em;
+  color: #333;
+}
+
+.NameEmail p {
+  margin: 5px 0 0;
+  font-size: 0.9em;
+  color: #666;
+}
+
+.NameEmailContainer,
+.PhoneNumbersContainer,
+.GenderAgeContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.Label {
+  font-size: 0.9em;
+  color: #555;
+  font-weight: 500;
+}
+
+.Input {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 0.9em;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.Textarea {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 0.9em;
+  width: 100%;
+  height: 80px;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+.AddressContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.Controls {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.SaveButton {
+  background-color: #2ecc71;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.SaveButton:hover {
+  background-color: #27ae60;
+}
+
+.SaveButton:disabled {
+  background-color: #95d5b2;
+  cursor: not-allowed;
+}
+
+.CancelButton {
+  background-color: #fff;
+  color: #333;
+  padding: 10px 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.CancelButton:hover {
+  background-color: #f0f0f0;
+}

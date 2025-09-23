@@ -27,8 +27,8 @@ export default function PopularSpecalties() {
   return (
     <div className={styles.popularContainer}>
      <div className={styles.popularContainerHeading}>
-        <h2>Why Choose MediStack</h2>
-        <p>Experience healthcare like never before</p>
+        <h2>Popular Specialties</h2>
+        <p>Find doctors by their specialization</p>
         <img src={require("../../assests/horizontal-rule-svgrepo-com.png")}  alt="underline" />
        </div>
        <div className={styles.popularContainercontent}>
