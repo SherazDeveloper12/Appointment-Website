@@ -32,7 +32,11 @@ const Header = () => {
               <Link to="/" onClick={() => setIsMenuOpen(false)}>Home</Link>
               <Link to="/find-doctors" onClick={() => setIsMenuOpen(false)}>Find Doctors</Link>
               <Link to="/specialties" onClick={() => setIsMenuOpen(false)}>Specialties</Link>
-            {(user)? <Link to="/" ><button onClick={() =>logouthandler() } className="login">Logout</button></Link> :  <><Link to="/login" ><button onClick={() => setIsMenuOpen(false)} className="login">Login</button></Link>
+            {(user)? <>
+            <Link to="/" ><button onClick={() =>logouthandler() } className="login">Logout</button></Link>
+            <Link to="/profile"><button className="profilebtn"> <img src={require("../../assests/user-single-gray.png")} width={25} /> <p> {user.name} </p>    </button></Link>
+             </>:  
+            <><Link to="/login" ><button onClick={() => setIsMenuOpen(false)} className="login">Login</button></Link>
         <Link to="/signup"><button onClick={() => setIsMenuOpen(false)} className="sign-up">Sign Up</button></Link>
   </> }
            
