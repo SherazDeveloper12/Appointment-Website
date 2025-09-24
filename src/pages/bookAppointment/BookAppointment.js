@@ -1,12 +1,12 @@
-// src/components/book-appointment/BookAppointment.js
 import Styles from './bookappointment.module.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { useState, useEffect, useRef } from 'react';
 import Header from '../../components/header/Header';
 import Footer from '../../components/footer/Footer';
-import { createAppointment } from '../../features/slices/appointmentSlice'; // Import from appointments slice
-import { updateUserProfile } from '../../features/slices/authslice'; // Import for profile update
+import { createAppointment } from '../../features/slices/appointmentSlice';
+import { updateUserProfile } from '../../features/slices/authslice';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export default function BookAppointment() {
   const dispatch = useDispatch();
@@ -24,16 +24,15 @@ export default function BookAppointment() {
     gender: user.gender || 'N/A',
   });
   const [loading, setLoading] = useState(false);
+  const [isImageUploading, setIsImageUploading] = useState(false);
   const [error, setError] = useState(null);
   const fileInputRef = useRef(null);
 
-  // Handle appointment form changes
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  // Handle profile form changes
   const handleProfileChange = (e) => {
     const { name, value, type } = e.target;
     if (type === 'radio') {
@@ -43,7 +42,6 @@ export default function BookAppointment() {
     }
   };
 
-  // Handle image upload
   const handleImageClick = () => {
     fileInputRef.current.click();
   };
@@ -52,6 +50,7 @@ export default function BookAppointment() {
     const file = e.target.files[0];
     if (!file) return;
 
+    setIsImageUploading(true);
     const temporaryUrl = URL.createObjectURL(file);
     setProfileData((prev) => ({ ...prev, img: temporaryUrl }));
 
@@ -64,41 +63,53 @@ export default function BookAppointment() {
         method: "post",
         body: data,
       });
+      if (!response.ok) {
+        throw new Error('Image upload failed');
+      }
       const jsonResponse = await response.json();
       const url = jsonResponse.url;
       setProfileData((prev) => ({ ...prev, img: url }));
     } catch (error) {
       console.error("Error uploading image:", error);
       setProfileData((prev) => ({ ...prev, img: user.img || '' }));
+      setError('Failed to upload image. Please try again.');
+    } finally {
+      setIsImageUploading(false);
     }
   };
 
-  // Handle appointment and profile submission
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (isImageUploading) {
+      setError('Please wait until the image upload is complete.');
+      return;
+    }
     setLoading(true);
     setError(null);
 
-    // Update profile if there are changes
-    const updatedUserData = {
-      name: profileData.name || null,
-      email: profileData.email || null,
-      phone: profileData.phone || null,
-      alternatePhone: profileData.alternatePhone || null,
-      gender: profileData.gender === 'N/A' ? null : profileData.gender,
-      age: profileData.age || null,
-      address: profileData.address || null,
-      img: profileData.img || null,
-      uid: user.uid || null,
-    };
-
     try {
-      // Only dispatch update if there are changes
-      if (JSON.stringify(user) !== JSON.stringify({ ...user, ...profileData })) {
+      console.log('Starting profile update...');
+      const updatedUserData = {
+        name: profileData.name || null,
+        email: profileData.email || null,
+        phone: profileData.phone || null,
+        alternatePhone: profileData.alternatePhone || null,
+        gender: profileData.gender === 'N/A' ? null : profileData.gender,
+        age: profileData.age || null,
+        address: profileData.address || null,
+        img: profileData.img || null,
+        uid: user.uid || null,
+      };
+
+      if (JSON.stringify(user) !== JSON.stringify({ ...user, ...updatedUserData })) {
+        console.log('Updating profile with:', updatedUserData);
         await dispatch(updateUserProfile(updatedUserData)).unwrap();
+        console.log('Profile updated successfully');
+      } else {
+        console.log('No profile changes detected');
       }
 
-      const appointmentData = {
+      console.log('Creating appointment with:', {
         userId: user.uid,
         doctorId: selectedDoctor.id,
         date: formData.date,
@@ -110,24 +121,40 @@ export default function BookAppointment() {
         DoctorName: selectedDoctor.DoctorName,
         DoctorRatings: selectedDoctor.Ratings,
         Specialties: selectedDoctor.Specialties,
-      };
+      });
 
-      await dispatch(createAppointment(appointmentData))
-      navigate('/profile'); // Redirect to profile/dashboard after booking
+      await dispatch(createAppointment({
+        userId: user.uid,
+        doctorId: selectedDoctor.id,
+        date: formData.date,
+        time: formData.time,
+        status: 'upcoming',
+        reason: formData.reason,
+        createdAt: new Date(),
+        DrImageUrl: selectedDoctor.DrImageUrl,
+        DoctorName: selectedDoctor.DoctorName,
+        DoctorRatings: selectedDoctor.Ratings,
+        Specialties: selectedDoctor.Specialties,
+      })).unwrap();
       console.log('Appointment booked successfully');
+      navigate('/profile');
     } catch (err) {
-      setError(err.message);
+      console.error('Submission error:', err);
+      setError(err.message || 'Failed to book appointment. Please try again.');
     } finally {
       setLoading(false);
+      console.log('Submission complete, loading set to false');
     }
   };
 
-  // Redirect if no doctor or user selected
   useEffect(() => {
     if (!selectedDoctor || !user.uid) {
-      navigate('/find-doctors');
+      if (!loading) {
+        console.log('Redirecting to /find-doctors due to missing doctor or user');
+        navigate('/find-doctors');
+      }
     }
-  }, [selectedDoctor, user.uid, navigate]);
+  }, [selectedDoctor, user.uid, navigate, loading]);
 
   if (!selectedDoctor || !user.uid) {
     return <div>Loading...</div>;
@@ -283,11 +310,11 @@ export default function BookAppointment() {
               onChange={handleChange}
               placeholder="Enter reason for your appointment"
             />
-          </div>
+          </div> 
           {error && <p className={Styles.error}>{error}</p>}
-          <button className={Styles.BookAppointmentbutton} type="submit" disabled={loading}>
-            {loading ? 'Booking...' : 'Book Appointment'}
-          </button>
+          <button className={Styles.BookAppointmentbutton} type="submit" disabled={loading || isImageUploading}>
+            {loading ? 'Booking...' : isImageUploading ? 'Uploading Image...' : 'Book Appointment'}
+          </button> 
         </form>
       </div>
       <Footer />
