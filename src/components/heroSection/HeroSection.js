@@ -10,9 +10,9 @@ export default function HeroSection() {
             <h1>Find & Book the Best Doctors Near You</h1>
             <p>Discover trusted healthcare professionals, read genuine reviews, and book appointments instantly. Your health is our priority.</p>
             <div className={Styles.buttonContainer}>
-                {(user)? <></>:<><Link to="/signup"> <Button className={Styles.Button} text="Get Started" /></Link></> }
+                {(user)? <><Link to="/profile"> <Button className={Styles.Button} text="View Dashboard" /></Link></>:<><Link to="/signup"> <Button className={Styles.Button} text="Get Started" /></Link></> }
                
-                <Link to="/profile"> <Button className={Styles.Button} text="View Dashboard" /></Link>
+                
                   <Link to="/find-doctors"> <Button className={Styles.Button} text="Find Doctor" /></Link>
               
             </div>
