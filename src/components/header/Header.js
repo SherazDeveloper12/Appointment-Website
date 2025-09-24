@@ -2,22 +2,25 @@ import React from 'react';
 import './Header.css'; // Assuming you will create a separate CSS file
 import { useSelector } from 'react-redux';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { logout } from '../../features/slices/authslice';
-
+import { useNavigate } from 'react-router-dom';
 const Header = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const logouthandler = () => { 
     setIsMenuOpen(false)
       dispatch(logout());
   };
      const user = useSelector((state) => state.auth.User);
-    
+    const logoclickhandler = () => {
+    navigate('/');
+  }
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <header className="header">
-      <div className="logo">
+      <div className="logo" onClick={logoclickhandler}>
         <img src={require("../../assests/medistack-logo.png")} alt="MediStack Logo" />
         <span>DoctorsMedia</span>
       </div>
