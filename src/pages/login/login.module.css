@@ -124,6 +124,7 @@
 }
 .passwordWrapper {
   position: relative;
+  z-index: 1;
 }
 .showPassword {
   position: absolute;
@@ -133,7 +134,7 @@
   cursor: pointer;
   font-size: 1rem;
   color: #6b7280;
-  z-index: 1;
+  z-index: 2;
 }
 
 .forgotPassword {
