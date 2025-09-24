@@ -1,3 +1,4 @@
+/* Header styling */
 .header {
   display: flex;
   align-items: center;
@@ -8,11 +9,16 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
+  z-index: 1000; /* Lower than sidebaroverlay and sidebarmenu */
 }
+
+/* Logo styling */
 .logo {
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
+
 .logo img {
   width: 30px;
   height: 30px;
@@ -25,6 +31,7 @@
   color: #000;
 }
 
+/* Navigation links styling */
 .nav-links a {
   margin: 0 15px;
   text-decoration: none;
@@ -35,9 +42,12 @@
 .nav-links a:hover {
   color: #007bff;
 }
-.auth-buttons{
+
+/* Auth buttons styling */
+.auth-buttons {
   display: flex;
 }
+
 .auth-buttons button {
   padding: 8px 20px;
   margin-left: 10px;
@@ -59,46 +69,13 @@
 .auth-buttons .sign-up:hover {
   background-color: #218838;
 }
-.togglebtn{
+
+/* Toggle button styling */
+.togglebtn {
   cursor: pointer;
 }
-@media screen and (max-width: 480px) {
-  .auth-buttons {
-   display: none;
-  }
-  .nav-links{
-    display: none;
-  }
-}
 
-@media screen and (min-width: 480px) {
-  .toggle{
-    display: none;
-  }
-}
-
-.mobile-menu {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 100vh;
-  z-index: 1000;
-  display: flex;
-}
-
-/* Overlay for background dimming */
-.sidebaroverlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(3px);
-  z-index: 100;
-}
-
+/* Profile button styling */
 .profilebtn {
   display: flex;
   justify-content: center;
@@ -107,7 +84,7 @@
   background-color: transparent;
   color: #333;
   padding: 10px 20px;
-  text-decoration: none; /* Ensure no underline from button */
+  text-decoration: none;
   border: 1px solid #ddd;
   border-radius: 25px;
   cursor: pointer;
@@ -115,6 +92,7 @@
   gap: 10px;
   transition: all 0.3s ease;
   outline: none;
+  z-index: 900; /* Lower than sidebaroverlay and sidebarmenu */
 }
 
 .profilebtn img {
@@ -125,10 +103,9 @@
 
 .profilebtn p {
   margin: 0;
-  text-decoration: none !important; /* Remove underline from text */
+  text-decoration: none !important;
   font-weight: 500;
   white-space: nowrap;
-  /* Remove any inherited underline */
   border-bottom: none !important;
   text-decoration-line: none !important;
 }
@@ -142,23 +119,43 @@
 .profilebtn:hover img {
   filter: grayscale(100%);
 }
-.logo{
-  cursor: pointer;
-}
+
 .profilebtn:focus {
   box-shadow: 0 0 0 3px rgba(51, 51, 51, 0.2);
   outline: none;
 }
 
-/* Target the Link parent to remove underline */
 .profilebtn a {
   text-decoration: none !important;
 }
 
-/* Ensure no inherited styles from parent */
-.profilebtn, .profilebtn p, .profilebtn a {
+.profilebtn,
+.profilebtn p,
+.profilebtn a {
   text-decoration: none !important;
   border-bottom: none !important;
+}
+
+/* Mobile menu styling */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 9998; /* Just below sidebaroverlay */
+}
+
+/* Overlay for background dimming */
+.sidebaroverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  z-index: 9999; /* Above header and other elements, below sidebarmenu */
 }
 
 /* Sidebar menu container styling */
@@ -171,7 +168,7 @@
   box-shadow: -6px 0 12px rgba(0, 0, 0, 0.15);
   transform: translateX(100%);
   animation: slideIn 0.4s ease-out forwards;
-  z-index: 200;
+  z-index: 10000; /* Highest to ensure it’s above everything */
   display: flex;
   flex-direction: column;
 }
@@ -251,7 +248,7 @@
 
 /* Close button container styling */
 .closebtn {
-  margin-top: auto; /* Pushes the close button to the bottom */
+  margin-top: auto;
   padding: 1.5rem;
   display: flex;
   align-self: flex-start;
@@ -271,6 +268,21 @@
 }
 
 /* Responsive design for smaller screens */
+@media screen and (max-width: 480px) {
+  .auth-buttons {
+    display: none;
+  }
+  .nav-links {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .toggle {
+    display: none;
+  }
+}
+
 @media (max-width: 768px) {
   .sidebarmenu {
     width: 260px;
@@ -285,7 +297,8 @@
     padding: 0.6rem 0.8rem;
   }
 
-  .login, .sign-up {
+  .login,
+  .sign-up {
     padding: 0.6rem 1.2rem;
     font-size: 0.95rem;
   }
