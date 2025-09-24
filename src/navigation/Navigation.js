@@ -7,10 +7,11 @@ import Login from '../pages/login/Login';
 import FindDoctors from '../pages/find doctors/FindDoctors';
 import Specialties from '../pages/specialties/Specialties';
 import UserDashboard from '../pages/user-dashboard/UserDashboard'
+import DoctorProfile from '../pages/doctorprofile/DoctorProfile';
+import BookAppointment from '../pages/bookAppointment/BookAppointment';
 import PrivateRoute from './PrivateRouting';
 import PublicRoute from './PublicRouting';
 export default function Navigation() {
-
   const router = createBrowserRouter([
     {
       path:"/",
@@ -30,15 +31,23 @@ export default function Navigation() {
     },
     {
       path:"/profile",
-      element:<UserDashboard/>
+      element: <PrivateRoute><UserDashboard/></PrivateRoute>
+    },
+    {
+      path:`/doctorProfile`,
+      element:<DoctorProfile/>
+    },
+    {
+      path:"/book-appointment",
+      element: <PrivateRoute><BookAppointment/></PrivateRoute>
     },
     {
       path:"/signup",
-      element: <Signup/>
+      element: <PublicRoute><Signup/></PublicRoute>
     },
     {
       path:"/login",
-      element:<Login/>
+      element:<PublicRoute><Login/></PublicRoute>
     },
   ])
   return (

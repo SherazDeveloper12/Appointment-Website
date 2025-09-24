@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchAllSpecialties } from '../../features/slices/specialties';
 import styles from './popularspecalties.module.css';
 import { useNavigate } from 'react-router-dom';
+import { fetchDoctorsBySpecialty } from '../../features/slices/doctors'; // Import fetchDoctorsBySpecialty
 
 export default function PopularSpecalties() {
   const dispatch = useDispatch();
@@ -20,9 +21,9 @@ export default function PopularSpecalties() {
     .filter((specialty) => specialty.Name !== 'Dermatology')
     .slice(0, 6);
 
-  const handleFindSpecialists = (specialtyName) => {
-    navigate('/find-doctors', { state: { selectedSpecialty: specialtyName } });
-  };
+  const handleFindSpecialists = (specialty) => {
+    dispatch(fetchDoctorsBySpecialty(specialty.DoctorsIncluded)); // Fetch filtered doctors
+        navigate('/find-doctors');}
 
   return (
     <div className={styles.popularContainer}>
@@ -37,7 +38,7 @@ export default function PopularSpecalties() {
       {popularSpecialties.length === 0 && !loading && !error && <p className={styles.noData}>No popular specialties found.</p>}
       <div className={styles.specialtiesList}>
         {popularSpecialties.map((specialty) => (
-          <div key={specialty.id} className={styles.specialtyCard} onClick={() => handleFindSpecialists(specialty.Name)}>
+          <div key={specialty.id} className={styles.specialtyCard} onClick={() => handleFindSpecialists(specialty)}>
             <div className={styles.coverImage} style={{ backgroundImage: `url(${specialty.CoverImageUrl})` }}></div>
             <div className={styles.content}>
               <h2 className={styles.specialtyName}>{specialty.Name}</h2>

@@ -1,0 +1,269 @@
+/* src/components/book-appointment/bookappointment.module.css */
+.BookAppointment {
+  background-color: #f5f5f5;
+  min-height: 100vh;
+  padding: 20px; /* Added padding for consistency */
+}
+
+.container {
+
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.BookAppointment h1 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.doctorInfo {
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #ecf0f1;
+  border-radius: 5px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.doctorImage {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.doctorImage img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.doctorInfo h2 {
+  margin: 0;
+  color: #2ecc71;
+}
+
+.doctorInfo p {
+  margin: 5px 0;
+  color: #7f8c8d;
+}
+
+.UserProfile {
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+  padding: 15px;
+}
+
+.UserProfileContainer {
+  padding: 0; /* No extra padding inside container */
+}
+
+.Header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.Header p {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.EditButton {
+  background-color: #2ecc71;
+  color: #fff;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.EditButton:hover {
+  background-color: #27ae60;
+}
+
+.ImgDetailContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.ImgContainer {
+  position: relative;
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.ImgContainer img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.uploadOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 0.9rem;
+}
+
+.NameEmail {
+  margin-left: 10px; /* Adjusted for alignment */
+}
+
+.NameEmail h3 {
+  margin: 0;
+  color: #2c3e50;
+}
+
+.NameEmail p {
+  margin: 5px 0;
+  color: #7f8c8d;
+}
+
+.NameEmailContainer,
+.PhoneNumbersContainer,
+.GenderAgeContainer,
+.AddressContainer {
+  margin-bottom: 15px;
+}
+
+.Label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 5px;
+  color: #2c3e50;
+}
+
+.Input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.RadioGroup {
+  display: flex;
+  gap: 15px;
+}
+
+.Textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  min-height: 80px;
+  resize: vertical;
+}
+
+.Controls {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.SaveButton,
+.CancelButton {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.SaveButton {
+  background-color: #2ecc71;
+  color: #fff;
+}
+
+.SaveButton:hover {
+  background-color: #27ae60;
+}
+
+.CancelButton {
+  background-color: #e74c3c;
+  color: #fff;
+}
+
+.CancelButton:hover {
+  background-color: #c0392b;
+}
+
+.appointmentForm {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.formGroup label {
+  font-weight: 500;
+  margin-bottom: 5px;
+  color: #2c3e50;
+}
+
+.formGroup input,
+.formGroup textarea {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.formGroup textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.error {
+  color: #e74c3c;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.BookAppointmentbutton {
+  background-color: #2ecc71;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.BookAppointmentbutton:disabled {
+  background-color: #95e1b3;
+  cursor: not-allowed;
+}
+
+.BookAppointmentbutton:hover:not(:disabled) {
+  background-color: #27ae60;
+}

@@ -1,9 +1,12 @@
 import Styles from "./featuredoctors.module.css";
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchAllDoctors } from '../../features/slices/doctors'; // Doctors slice se import
+import { fetchAllDoctors ,setSelectedDoctor } from '../../features/slices/doctors'; // Doctors slice se import
 import { Link } from "react-router";
+import { useNavigate } from 'react-router-dom'; // For navigation
+
 export default function FeatureDoctors() {
+    const navigate = useNavigate();
   const dispatch = useDispatch();
   const doctors = useSelector((state) => state.doctors.doctors); // Saare doctors
   const loading = useSelector((state) => state.doctors.loading);
@@ -22,7 +25,15 @@ export default function FeatureDoctors() {
 
   // Pehle 3 doctors
   const featuredDoctors = doctors.slice(0, 3);
-
+const handleViewProfile = (doctor) => {
+    dispatch(setSelectedDoctor(doctor)); // Set selected doctor in Redux state
+    navigate('/doctorProfile'); // Navigate to DoctorProfile page
+  };
+  const handleBookAppointment = (doctor) => {
+    dispatch(setSelectedDoctor(doctor)); // Set selected doctor in Redux state
+    navigate('/book-appointment'); // Navigate to DoctorProfile page
+  };
+    
   return (
     <div className={Styles.Container}>
       <div className={Styles.Heading}>
@@ -65,8 +76,9 @@ export default function FeatureDoctors() {
                   <p className={Styles.experienceparagraph}>{doctor.Experience} years experience</p>
                   </div>
               <div className={Styles.actions}>
-                <button className={Styles.viewProfile}>View Profile</button>
-                <button className={Styles.bookNow}>Book Now</button>
+             
+              <button onClick={() => handleViewProfile(doctor)} className={Styles.viewProfile}>View Profile</button>
+                   <button onClick={() => handleBookAppointment(doctor)} className={Styles.bookNow}>Book Now</button> 
               </div>
             </div>
           ))}

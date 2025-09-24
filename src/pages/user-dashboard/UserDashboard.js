@@ -1,4 +1,5 @@
 import Styles from './userdashboard.module.css';
+import { useSelector } from 'react-redux';
 import { useState } from 'react';
 import Header from '../../components/header/Header';
 import Footer from '../../components/footer/Footer';
@@ -10,7 +11,9 @@ export default function UserDashboard() {
   const [showAppointment, setShowAppointment] = useState(true);
   const [showHealthRecord, setShowHealthRecord] = useState(false);
   const [showNotifcations, setShowNotifications] = useState(false);
-
+    const appointments = useSelector((state) => state.appointments.appointments);
+ const upcomingAppointments = appointments.filter(app => app.status === 'upcoming');
+  const pastAppointments = appointments.filter(app => app.status === 'completed' || app.status === 'cancelled');
   const toggleProfile = () => {
     setShowProfile(!showProfile);
     setShowAppointment(false);  
@@ -50,7 +53,7 @@ export default function UserDashboard() {
           <div className={Styles.cardContainerImage}>
           <img src={require('../../assests/calendar-svgrepo-com.png')} alt="calendar" width={25}/></div>
           <div className={Styles.cardContent}>
-            <h2 className={Styles.cardTitle}>0</h2>
+            <h2 className={Styles.cardTitle}>{upcomingAppointments.length}</h2>
             <p className={Styles.cardDescription}>Upcoming</p>
           </div>
          </div>
@@ -58,7 +61,7 @@ export default function UserDashboard() {
            <div className={Styles.cardContainerImage}>
           <img src={require('../../assests/clock-counter-clockwise-fill-svgrepo-com.png')} alt="calendar" width={25}/></div>
           <div className={Styles.cardContent}>
-            <h2 className={Styles.cardTitle}>0</h2>
+            <h2 className={Styles.cardTitle}>{pastAppointments.length}</h2>
             <p className={Styles.cardDescription}>Completed</p>
           </div>
          </div>

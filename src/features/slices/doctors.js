@@ -3,6 +3,12 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { db } from '../../config/firestore'; 
 
+// Load selectedDoctor from localStorage on initial load
+const loadSelectedDoctor = () => {
+  const storedDoctor = localStorage.getItem('selectedDoctor');
+  return storedDoctor ? JSON.parse(storedDoctor) : null;
+};
+
 // Thunk for fetching all doctors
 export const fetchAllDoctors = createAsyncThunk('doctors/fetchAll', async () => {
   try {
@@ -17,19 +23,22 @@ export const fetchAllDoctors = createAsyncThunk('doctors/fetchAll', async () => 
   }
 });
 
-// Thunk for fetching filtered doctors (specialty ke basis pe)
-export const fetchDoctorsBySpecialty = createAsyncThunk('doctors/fetchBySpecialty', async (specialty) => {
+// Thunk for fetching filtered doctors by specialty using DoctorsIncluded
+export const fetchDoctorsBySpecialty = createAsyncThunk('doctors/fetchBySpecialty', async (DoctorsIncluded) => {
   try {
-    if (!specialty) {
-      return []; // Agar specialty empty hai, to empty return
-    }
-    const q = query(collection(db, 'Doctors'), where('specialty', '==', specialty)); // Exact match specialty pe
+
+    const q = query(collection(db, 'Doctors')); // Sab doctors fetch karo
     const querySnapshot = await getDocs(q);
     const doctors = querySnapshot.docs.map(doc => ({
       id: doc.id,
       ...doc.data()
     }));
-    return doctors;
+
+    // Filter doctors jinka Specialties DoctorsIncluded se match kare
+    const filteredDoctors = doctors.filter(doctor =>
+      doctor.Specialties === DoctorsIncluded
+    );
+    return filteredDoctors;
   } catch (error) {
     throw new Error(error.message);
   }
@@ -39,7 +48,8 @@ const doctorsSlice = createSlice({
   name: 'doctors',
   initialState: {
     doctors: [], // Saara data yahaan store hoga
-    filteredDoctors: [], // Filtered data yahaan
+    filteredDoctors: [], // Naya state for filtered doctors
+    selectedDoctor: loadSelectedDoctor(), // Load from localStorage
     loading: false,
     error: null
   },
@@ -48,9 +58,19 @@ const doctorsSlice = createSlice({
     filterDoctorsLocally: (state, action) => {
       const searchQuery = action.payload.toLowerCase();
       state.filteredDoctors = state.doctors.filter(doctor =>
-        doctor.name.toLowerCase().includes(searchQuery) // Name pe filter, tum change kar sakte ho
+        doctor.name.toLowerCase().includes(searchQuery)
       );
-    }
+    },
+    // New reducer to set selected doctor
+    setSelectedDoctor: (state, action) => {
+      state.selectedDoctor = action.payload;
+      localStorage.setItem('selectedDoctor', JSON.stringify(action.payload));
+    },
+    // New reducer to clear selected doctor if needed
+    clearSelectedDoctor: (state) => {
+      state.selectedDoctor = null;
+      localStorage.removeItem('selectedDoctor');
+    },
   },
   extraReducers: (builder) => {
     // Fetch All cases
@@ -76,7 +96,7 @@ const doctorsSlice = createSlice({
       })
       .addCase(fetchDoctorsBySpecialty.fulfilled, (state, action) => {
         state.loading = false;
-        state.filteredDoctors = action.payload;
+        state.filteredDoctors = action.payload; // Update filteredDoctors state
       })
       .addCase(fetchDoctorsBySpecialty.rejected, (state, action) => {
         state.loading = false;
@@ -85,8 +105,8 @@ const doctorsSlice = createSlice({
   }
 });
 
-// Export actions (agar local filter use karna hai)
-export const { filterDoctorsLocally } = doctorsSlice.actions;
+// Export actions
+export const { filterDoctorsLocally, setSelectedDoctor, clearSelectedDoctor } = doctorsSlice.actions;
 
 // Export reducer
 export default doctorsSlice.reducer;
