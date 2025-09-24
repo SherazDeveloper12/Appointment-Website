@@ -147,14 +147,7 @@ export default function BookAppointment() {
     }
   };
 
-  useEffect(() => {
-    if (!selectedDoctor || !user.uid) {
-      if (!loading) {
-        console.log('Redirecting to /find-doctors due to missing doctor or user');
-        navigate('/find-doctors');
-      }
-    }
-  }, [selectedDoctor, user.uid, navigate, loading]);
+ 
 
   if (!selectedDoctor || !user.uid) {
     return <div>Loading...</div>;
