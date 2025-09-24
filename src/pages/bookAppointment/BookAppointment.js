@@ -112,7 +112,7 @@ export default function BookAppointment() {
         Specialties: selectedDoctor.Specialties,
       };
 
-      await dispatch(createAppointment(appointmentData)).unwrap();
+      await dispatch(createAppointment(appointmentData))
       navigate('/profile'); // Redirect to profile/dashboard after booking
       console.log('Appointment booked successfully');
     } catch (err) {
