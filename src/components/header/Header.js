@@ -30,7 +30,7 @@ const Header = () => {
       </div>
       {isMenuOpen && (
         <div className="mobile-menu">
-          <div className='sidebaroverlay'></div>
+          <div onClick={() => setIsMenuOpen(false)} className='sidebaroverlay'></div>
           <div className='sidebarmenu'>
             <div className='sidebar'>
               <Link to="/" onClick={() => setIsMenuOpen(false)}>Home</Link>
