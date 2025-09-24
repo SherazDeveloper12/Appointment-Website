@@ -19,7 +19,7 @@ const Header = () => {
     <header className="header">
       <div className="logo">
         <img src={require("../../assests/medistack-logo.png")} alt="MediStack Logo" />
-        <span>MediStack</span>
+        <span>DoctorsMedia</span>
       </div>
       <div className='toggle'>
         <img className='togglebtn' src={require("../../assests/drawer.png")} width={45} onClick={() => setIsMenuOpen(!isMenuOpen)} alt="Toggle Menu" />

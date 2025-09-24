@@ -7,7 +7,7 @@ export default function Footer() {
                 <div className={Styles.footerSections}>
                     <div className={Styles.logo}>
                         <img src={require("../../assests/medistack-logo.png")} width={35} alt="Company Logo" />
-                        <h2>MediStack</h2>
+                        <h2>DoctorsMedia</h2>
                         </div>
                     <p>Your trusted healthcare partner for finding the best doctors and booking appointments online.</p>
                     <div className={Styles.socialIcons}>
