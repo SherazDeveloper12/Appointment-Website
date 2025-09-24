@@ -6,7 +6,8 @@
   background-color: #fff;
   border-bottom: 2px solid #e0f7f9;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  
+  position: sticky;
+  top: 0;
 }
 .logo {
   display: flex;
@@ -141,7 +142,9 @@
 .profilebtn:hover img {
   filter: grayscale(100%);
 }
-
+.logo{
+  cursor: pointer;
+}
 .profilebtn:focus {
   box-shadow: 0 0 0 3px rgba(51, 51, 51, 0.2);
   outline: none;

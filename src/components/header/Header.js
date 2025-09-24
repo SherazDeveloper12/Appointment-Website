@@ -16,11 +16,12 @@ const Header = () => {
      const user = useSelector((state) => state.auth.User);
     const logoclickhandler = () => {
     navigate('/');
+    console.log('logo clicked');
   }
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <header className="header">
-      <div className="logo" onClick={logoclickhandler}>
+      <div className="logo" onClick={()=>logoclickhandler()}>
         <img src={require("../../assests/medistack-logo.png")} alt="MediStack Logo" />
         <span>DoctorsMedia</span>
       </div>
