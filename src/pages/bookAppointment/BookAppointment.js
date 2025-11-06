@@ -70,7 +70,7 @@ export default function BookAppointment() {
       const url = jsonResponse.url;
       setProfileData((prev) => ({ ...prev, img: url }));
     } catch (error) {
-      console.error("Error uploading image:", error);
+     
       setProfileData((prev) => ({ ...prev, img: user.img || '' }));
       setError('Failed to upload image. Please try again.');
     } finally {
@@ -88,7 +88,7 @@ export default function BookAppointment() {
     setError(null);
 
     try {
-      console.log('Starting profile update...');
+     
       const updatedUserData = {
         name: profileData.name || null,
         email: profileData.email || null,
@@ -102,26 +102,14 @@ export default function BookAppointment() {
       };
 
       if (JSON.stringify(user) !== JSON.stringify({ ...user, ...updatedUserData })) {
-        console.log('Updating profile with:', updatedUserData);
+       
         await dispatch(updateUserProfile(updatedUserData)).unwrap();
-        console.log('Profile updated successfully');
+      
       } else {
-        console.log('No profile changes detected');
+        
       }
 
-      console.log('Creating appointment with:', {
-        userId: user.uid,
-        doctorId: selectedDoctor.id,
-        date: formData.date,
-        time: formData.time,
-        status: 'upcoming',
-        reason: formData.reason,
-        createdAt: new Date(),
-        DrImageUrl: selectedDoctor.DrImageUrl,
-        DoctorName: selectedDoctor.DoctorName,
-        DoctorRatings: selectedDoctor.Ratings,
-        Specialties: selectedDoctor.Specialties,
-      });
+    
 
       await dispatch(createAppointment({
         userId: user.uid,
@@ -136,14 +124,14 @@ export default function BookAppointment() {
         DoctorRatings: selectedDoctor.Ratings,
         Specialties: selectedDoctor.Specialties,
       })).unwrap();
-      console.log('Appointment booked successfully');
+       
       navigate('/profile');
     } catch (err) {
-      console.error('Submission error:', err);
+      
       setError(err.message || 'Failed to book appointment. Please try again.');
     } finally {
       setLoading(false);
-      console.log('Submission complete, loading set to false');
+       
     }
   };
 

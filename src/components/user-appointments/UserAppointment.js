@@ -22,7 +22,7 @@ export default function UserAppointment() {
   // Filter upcoming and past appointments
   const upcomingAppointments = appointments.filter(app => app.status === 'upcoming');
   const pastAppointments = appointments.filter(app => app.status === 'completed' || app.status === 'cancelled');
-  console.log("Appointments in UserAppointment.js", appointments);
+ 
   const handleCompleteAppointment = (appointment) => { 
     dispatch(completeAppointment(appointment.id));
   };

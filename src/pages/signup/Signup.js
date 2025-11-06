@@ -24,7 +24,7 @@ export default function Signup() {
     let userDetails={
             name,email,password
         }
-    console.log('Signup submitted',userDetails );
+     
      disptach(signup(userDetails))
       setName('')
         setEmail('')

@@ -16,7 +16,7 @@ const Header = () => {
      const user = useSelector((state) => state.auth.User);
     const logoclickhandler = () => {
     navigate('/');
-    console.log('logo clicked');
+    
   }
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (

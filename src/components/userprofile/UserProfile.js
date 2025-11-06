@@ -51,12 +51,12 @@ export default function UserProfile() {
       });
       const jsonResponse = await response.json();
       const url = jsonResponse.url;
-      console.log("img url is ", url);
+   
 
       // Update with final Cloudinary URL
       setEditedUser((prev) => ({ ...prev, img: url }));
     } catch (error) {
-      console.error("Error uploading image:", error);
+     
       // Revert to original image if upload fails
       setEditedUser((prev) => ({ ...prev, img: user.img || '' }));
     }
@@ -75,7 +75,7 @@ export default function UserProfile() {
       img: editedUser.img || null,
       uid: user.uid || null,
     };
-    console.log("Updated user data:", updatedUserData);
+ 
 
     dispatch(updateUserProfile(updatedUserData));
 

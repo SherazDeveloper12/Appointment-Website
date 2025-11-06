@@ -6,25 +6,25 @@ import { addDoc, collection, doc, setDoc, getDoc, updateDoc } from "firebase/fir
 export const getCurrentUser = createAsyncThunk(
   "getCurrentUser",
   async (setLoading, { dispatch }) => {
-    console.log("getCurrentUser called");
+     
     try {
       onAuthStateChanged(auth, async (user) => {
         if (user) {
           const uid = user.uid;
           const userdetails = await getDoc(doc(db, "users", uid));
           const loginedUser = userdetails?.data();
-          console.log("Current user", loginedUser?.name);
+         
           dispatch(setUser(loginedUser));
           setLoading(false);
           return user;
         } else {
-          console.log("There is no current user");
+         
           setLoading(false);
           return null;
         }
       });
     } catch (error) {
-      console.log(error);
+      
     }
   }
 );

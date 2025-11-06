@@ -17,7 +17,7 @@ export default function SpecialtiesGrid() {
     dispatch(fetchAllSpecialties());
   }, [dispatch]);
 
-  console.log('Specialties wala data =>', specialties);
+ 
 
   const handleFindDoctors = (specialty) => {
     dispatch(fetchDoctorsBySpecialty(specialty.DoctorsIncluded)); // Fetch filtered doctors

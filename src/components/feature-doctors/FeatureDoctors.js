@@ -16,10 +16,10 @@ export default function FeatureDoctors() {
     dispatch(fetchAllDoctors()); // Saare doctors fetch karo
   }, [dispatch]);
 
-  // Doctors ko console mein print karo
+ 
   useEffect(() => {
     if (!loading && !error) {
-      console.log('All Doctors Data =>', doctors);
+       
     }
   }, [doctors, loading, error]);
 

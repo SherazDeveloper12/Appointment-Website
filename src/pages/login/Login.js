@@ -27,7 +27,7 @@ export default function Login() {
       password
      }
 dispatch(login(user))
-     console.log("user from login component",user)
+     
      setEmail('')
      setPassword('')
   };

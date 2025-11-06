@@ -12,7 +12,7 @@ function App() {
     dispatch(getCurrentUser(setLoading));
   }, []);
      const user = useSelector((state) => state.auth.User);
-   console.log("User in App.js", user);
+ 
   return (
     <>
     {(loading) ? <div className="loading-container"><PulseLoader color="#000" /></div> : <Navigation />}

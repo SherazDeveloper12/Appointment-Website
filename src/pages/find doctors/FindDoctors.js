@@ -22,8 +22,7 @@ export default function FindDoctors() {
   // Doctors ko console mein print karo
   useEffect(() => {
     if (!loading && !error) {
-      console.log('All/Filtered Doctors Data =>', filteredDoctors.length > 0 ? filteredDoctors : doctors);
-    }
+     }
   }, [doctors, filteredDoctors, loading, error]);
 
   // Handle View Profile click
